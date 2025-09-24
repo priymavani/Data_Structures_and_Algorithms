@@ -32,6 +32,26 @@ int main() {
     return 0;
 }
 
+// Diagram
+
+//                 6
+//       B-------------------D
+//      /|                   |
+//   3 / |                   |
+//    /  |                   |
+//   A   |9                  |  10
+//    \  |                   |
+//   4 \ |                   |
+//      \|                   |
+//       C-------------------E
+//                2
+
+// A - 0
+// B - 1
+// C - 2   
+// D - 3
+// E - 4
+
 // output
 // Enter the number of vertices and edges: 5 6
 // Enter the edges (u v w): 
