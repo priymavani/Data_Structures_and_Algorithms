@@ -100,6 +100,50 @@ void deleteFirst(Node*& Head){
     cout << "Deleted first node with value: " << Head->data << endl;
 }
 
+
+/*
+DELETE NODE
+Handles empty list
+
+Handles deleting the head
+
+Handles deleting last node
+
+Handles middle node */
+void deleteNode(Node*& head, int value) {
+
+    if (head == nullptr) {
+        cout << "List is empty!" << endl;
+        return;
+    }
+
+    // Case 1: delete head
+    if (head->data == value) {
+        Node* toDelete = head;
+        head = head->next;
+        delete toDelete;
+        cout << "Deleted node: " << value << endl;
+        return;
+    }
+
+    // Case 2: delete in the middle or end
+    Node* temp = head;
+
+    while (temp->next != nullptr) {
+        if (temp->next->data == value) {
+            Node* toDelete = temp->next;
+            temp->next = toDelete->next;
+            delete toDelete;
+            cout << "Deleted node: " << value << endl;
+            return;
+        }
+        temp = temp->next;
+    }
+
+    cout << "Node with value " << value << " not found in Linked List" << endl;
+}
+
+
 void printList(Node* Head) {
     Node* temp = Head;
     while (temp != nullptr) {
