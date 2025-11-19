@@ -36,20 +36,30 @@ void insertStartNode(Node*& Head,int value){
     cout << "Inserted at start: " << value << endl;
 }
 
-void insertBtwNode(Node*& Head, int value,int after){
-    Node* newNode = new Node(value);
-    Node* box = Head ;
-    Node* last ;
+void insertBtwNode(Node*& head , int value , int after){
+ 
+ if(head == nullptr  ){
+   cout << "head is null" << endl;
+   return;
+ }
+  Node* temp = head;
+  
+  while(temp != nullptr){
+     if(temp->data == after){
+        Node* newNode = new Node(value);
+        Node* last = temp->next;
+        temp->next = newNode;
+        newNode->next = last;
+        cout << "Node with value : " << value << " is inserted" << endl ;
+        return;
+     }
     
-    while(box->next != nullptr){
-        if(box->data == after){
-            last = box->next;
-            box->next =newNode;
-            newNode->next = last ;
-        }
-        box = box->next;
-    }
-    cout << "Inserted " << value << " after " << after << endl;
+    temp = temp ->next;
+  }
+  
+  cout << "Node with value " << after << " Not found in Linked List" << endl;
+ 
+  return;
 }
 
 void deletionBtw(Node*& Head, int value){
